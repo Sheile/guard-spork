@@ -1,16 +1,15 @@
 require 'guard'
-require 'guard/guard'
 require 'childprocess'
 
 module Guard
-  class Spork < Guard
+  class Spork < Plugin
 
     autoload :Runner, 'guard/spork/runner'
     autoload :SporkInstance, 'guard/spork/spork_instance'
     autoload :SporkWindowsInstance, 'guard/spork/spork_windows_instance'
     attr_accessor :runner
 
-    def initialize(watchers=[], options={})
+    def initialize(options={})
       super
       @runner = Runner.new(options)
     end
